@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { of } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { tap } from 'rxjs';
+import { DataService } from './services/data.service';
 
 @Component({
     selector: 'app-root',
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule],
 })
 export class AppComponent {
+    dataService = inject(DataService);
     title = 'betsys-task-table';
-    abc = of('asd');
+    users$ = this.dataService.getUsers().pipe(tap(console.warn));
 }
