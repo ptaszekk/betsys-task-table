@@ -1,0 +1,80 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "parserOptions": {
+    "project": [
+      "tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@betsys-eslint/angular-template-spacing"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "plugins": [
+        "@betsys-eslint/angular-template-spacing"
+      ],
+      "extends": [
+        "@betsys-eslint/angular-template",
+        "plugin:@betsys-eslint/angular-template-spacing/recommended"
+      ],
+      "rules": {
+        "@betsys-eslint/angular-template-spacing/interpolation": [
+          "error",
+          "always",
+          {
+            "allowNewlines": false
+          }
+        ],
+        "@betsys-eslint/angular-template-spacing/pipe": [
+          "error",
+          "always"
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "@betsys-eslint/typescript",
+        "@betsys-eslint/angular",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@ngrx/recommended"
+      ]
+    }
+  ]
+}
