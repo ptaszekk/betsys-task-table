@@ -20,21 +20,11 @@
         "@betsys-eslint/angular-template-spacing"
       ],
       "extends": [
-        "@betsys-eslint/angular-template",
         "plugin:@betsys-eslint/angular-template-spacing/recommended"
       ],
       "rules": {
-        "@betsys-eslint/angular-template-spacing/interpolation": [
-          "error",
-          "always",
-          {
-            "allowNewlines": false
-          }
-        ],
-        "@betsys-eslint/angular-template-spacing/pipe": [
-          "error",
-          "always"
-        ]
+        "@betsys-eslint/angular-template-spacing/interpolation": ["error", "always", { "allowNewlines": false }],
+        "@betsys-eslint/angular-template-spacing/pipe": ["error", "always"]
       }
     },
     {
