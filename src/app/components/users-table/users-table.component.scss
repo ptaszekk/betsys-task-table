@@ -1,0 +1,32 @@
+table {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+thead {
+  padding: 10px;
+
+  tr {
+    width: 100%;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+tbody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+
+  tr {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}
