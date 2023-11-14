@@ -1,16 +1,25 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": true,
-  "paths": {
-    "@app/*": [
-      "app/*"
-    ],
-    "@components/*": [
-      "app/components/*"
-    ],
-  },
   "compilerOptions": {
-    "baseUrl": "./",
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@state/*":  [
+        "src/app/state/*"
+      ]
+    },
+    "baseUrl": ".",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -24,11 +33,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es2022",
+    "module": "es2022",
     "useDefineForClassFields": false,
     "lib": [
-      "es2015",
+      "es2022",
       "dom"
     ]
   },
