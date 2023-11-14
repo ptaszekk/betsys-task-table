@@ -3,7 +3,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { provideStore, StoreModule } from '@ngrx/store';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { usersReducer } from '@state/users.reducers';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
@@ -19,6 +19,7 @@ bootstrapApplication(AppComponent, {
             StoreRouterConnectingModule.forRoot(),
         ),
         provideStore({ users: usersReducer }),
+        provideHttpClient(),
     ],
 })
     .catch((err) => console.error(err));

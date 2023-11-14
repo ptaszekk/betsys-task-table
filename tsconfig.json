@@ -1,5 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "exclude": ["node_modules", "__tests__"],
+  "include": ["src/**/*"],
   "compileOnSave": true,
   "compilerOptions": {
     "paths": {
@@ -17,9 +19,9 @@
       ],
       "@state/*":  [
         "src/app/state/*"
-      ]
+      ],
     },
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -33,6 +35,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "typeRoots": ["node_modules/@types"],
     "target": "es2022",
     "module": "es2022",
     "useDefineForClassFields": false,
