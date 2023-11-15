@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { mapUsers } from '@helpers/app.helpers';
 import { map, Observable, take } from 'rxjs';
 import { FetchedUser, User } from '@models/models';
 
@@ -11,10 +12,6 @@ export class DataService {
     private baseUrl = 'https://jsonplaceholder.typicode.com';
 
     getUsers(): Observable<Array<User>> {
-        return this.http.get<Array<FetchedUser>>(`${this.baseUrl}/users`).pipe(take(1), map((fetchedUsers) => this.mapUsers(fetchedUsers)));
-    }
-
-    mapUsers(users: Array<FetchedUser>): Array<User> {
-        return users.map(({ id, name, address: { city } }) => ({ id, name, city }));
+        return this.http.get<Array<FetchedUser>>(`${this.baseUrl}/users`).pipe(take(1), map((fetchedUsers) => mapUsers(fetchedUsers)));
     }
 }

@@ -15,6 +15,9 @@
       "@components/*": [
         "src/app/components/*"
       ],
+      "@helpers/*":  [
+        "src/app/helpers/*"
+      ],
       "@models/*": [
         "src/app/models/*"
       ],
