@@ -21,9 +21,11 @@ export class AppComponent implements OnInit {
     dataService: DataService = inject(DataService);
     store: Store = inject(Store);
     users$: Observable<Array<User>> = this.store.select(selectUsers);
+    title = 'Users';
 
     ngOnInit(): void {
         this.dataService.getUsers().subscribe((users) => {
+            console.warn(users);
             this.store.dispatch(setUsers({ users }));
         });
     }

@@ -10,17 +10,21 @@ describe('AppComponent', () => {
     const httpClient = HttpClient;
     const store = Store;
 
-    beforeEach(() => {
+    beforeAll(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule, HttpClientModule, AppComponent, StoreModule.forRoot()],
             providers: [DataService, Store],
         });
+
+        TestBed.inject(service);
+        TestBed.inject(httpClient);
+        TestBed.inject(store);
     });
 
     it('App should be created', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-
+        expect(app.title !== '').toBeTruthy();
         expect(app).toBeTruthy();
     });
 
@@ -32,7 +36,7 @@ describe('AppComponent', () => {
         expect(service).toBeTruthy();
     });
 
-    it('http client should be created', () => {
+    it('Http client should be created', () => {
         expect(httpClient).toBeTruthy();
     });
 });
