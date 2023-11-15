@@ -4,6 +4,8 @@
  */
 
 import type { Config } from 'jest';
+import {pathsToModuleNameMapper} from "ts-jest";
+// import { compilerOptions } from "./tsconfig.json";
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -76,12 +78,36 @@ const config: Config = {
     moduleDirectories: [
         'node_modules',
         '@components',
+        '@services',
+        '@models',
+        '@services',
     ],
-    moduleNameMapper: {
-        '@component/(.*)': '/src/app/components/$1',
-        '@services/(.*)': '/src/app/services/$1',
-        '@models/(.*)': '/src/app/models/$1',
-    },
+    // modulePaths: ["./"],
+    // moduleNameMapper: {
+    //     '@component/(.*)': '<root-dir>/src/app/components/$1',
+    //     '@services/(.*)': '<root-dir>/src/app/services/$1',
+    //     '@models/(.*)': '<root-dir>/src/app/models/$1',
+    // },
+
+    // moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+    moduleNameMapper: pathsToModuleNameMapper({
+        "@app/*": [
+            "src/app/*"
+        ],
+        "@components/*": [
+            "src/app/components/*"
+        ],
+        "@models/*": [
+            "src/app/models/*"
+        ],
+        "@services/*": [
+            "src/app/services/*"
+        ],
+        "@state/*":  [
+            "src/app/state/*"
+        ]
+    }),
+    modulePaths: ['<rootDir>'],
 
     // An array of file extensions your modules use
     // moduleFileExtensions: [

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { DataService } from '@services/data.service';
@@ -13,14 +13,13 @@ import { UsersTableComponent } from '@components/users-table/users-table.compone
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     standalone: true,
-    imports: [NgIf, AsyncPipe, UsersTableComponent],
+    imports: [CommonModule, UsersTableComponent],
     changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class AppComponent implements OnInit {
     dataService: DataService = inject(DataService);
     store: Store = inject(Store);
-    title = 'betsys-task-table';
     users$: Observable<Array<User>> = this.store.select(selectUsers);
 
     ngOnInit(): void {

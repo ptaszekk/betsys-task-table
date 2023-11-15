@@ -11,6 +11,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
+"testPathDirs": ["app/"] ,
   "private": true,
   "dependencies": {
     "-": "^0.0.1",

@@ -3,7 +3,11 @@
   "exclude": ["node_modules", "__tests__"],
   "include": ["src/**/*"],
   "compileOnSave": true,
+
   "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
     "paths": {
       "@app/*": [
         "src/app/*"
@@ -19,7 +23,7 @@
       ],
       "@state/*":  [
         "src/app/state/*"
-      ],
+      ]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
