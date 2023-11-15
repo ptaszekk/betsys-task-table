@@ -82,20 +82,15 @@ const config: Config = {
         '@models',
         '@services',
     ],
-    // modulePaths: ["./"],
-    // moduleNameMapper: {
-    //     '@component/(.*)': '<root-dir>/src/app/components/$1',
-    //     '@services/(.*)': '<root-dir>/src/app/services/$1',
-    //     '@models/(.*)': '<root-dir>/src/app/models/$1',
-    // },
-
-    // moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
     moduleNameMapper: pathsToModuleNameMapper({
         "@app/*": [
             "src/app/*"
         ],
         "@components/*": [
             "src/app/components/*"
+        ],
+        "@helpers/*":  [
+            "src/app/helpers/*"
         ],
         "@models/*": [
             "src/app/models/*"
