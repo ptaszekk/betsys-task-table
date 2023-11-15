@@ -14,4 +14,5 @@ import { User } from '@models/models';
 })
 export class UsersTableComponent {
     @Input() users!: Array<User>;
+    @Input() title!: string;
 }

@@ -3,7 +3,7 @@ import { UsersState } from '@state/users.state';
 import { setUsers } from '@state/users.actions';
 import { User } from '@models/models';
 
-const initialState: UsersState = {
+export const initialState: UsersState = {
     users: [],
 };
 

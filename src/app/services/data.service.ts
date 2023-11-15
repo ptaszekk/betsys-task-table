@@ -11,6 +11,10 @@ export class DataService {
     private baseUrl = 'https://jsonplaceholder.typicode.com';
 
     getUsers(): Observable<Array<User>> {
-        return this.http.get<Array<FetchedUser>>(`${this.baseUrl}/users`).pipe(take(1), map((fetchedUsers) => fetchedUsers.map(({ id, name, address: { city } }) => ({ id, name, city }))));
+        return this.http.get<Array<FetchedUser>>(`${this.baseUrl}/users`).pipe(take(1), map((fetchedUsers) => this.mapUsers(fetchedUsers)));
+    }
+
+    mapUsers(users: Array<FetchedUser>): Array<User> {
+        return users.map(({ id, name, address: { city } }) => ({ id, name, city }));
     }
 }

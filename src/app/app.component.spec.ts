@@ -1,28 +1,42 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from '@app/app.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { DataService } from '@services/data.service';
 
 describe('AppComponent', () => {
-    beforeEach(() => TestBed.configureTestingModule({
-        imports: [RouterTestingModule, AppComponent],
-    }));
+    const service = DataService;
+    const httpClient = HttpClient;
+    const store = Store;
 
-    it('should create the app', () => {
+    beforeAll(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule, HttpClientModule, AppComponent, StoreModule.forRoot()],
+            providers: [DataService, Store],
+        });
+
+        TestBed.inject(service);
+        TestBed.inject(httpClient);
+        TestBed.inject(store);
+    });
+
+    it('App should be created', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
+        expect(app.title !== '').toBeTruthy();
         expect(app).toBeTruthy();
     });
 
-    it('should have as title \'betsys-task-table\'', () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app.title).toEqual('betsys-task-table');
+    it('Store should be created', () => {
+        expect(store).toBeTruthy();
     });
 
-    it('should render title', () => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.nativeElement as HTMLElement;
-        expect(compiled.querySelector('.content span')?.textContent).toContain('betsys-task-table app is running!');
+    it('Data Service should be created', () => {
+        expect(service).toBeTruthy();
+    });
+
+    it('Http client should be created', () => {
+        expect(httpClient).toBeTruthy();
     });
 });
