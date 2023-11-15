@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.dataService.getUsers().subscribe((users) => {
-            console.warn(users);
             this.store.dispatch(setUsers({ users }));
         });
     }

@@ -3,6 +3,8 @@ table {
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 thead {
@@ -23,8 +25,6 @@ tbody {
 
   tr {
     border: 1px solid black;
-    border-collapse: separate;
-    border-spacing: 0;
     display: flex;
     justify-content: space-between;
     padding: 10px;

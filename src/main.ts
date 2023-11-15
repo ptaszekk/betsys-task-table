@@ -1,4 +1,3 @@
-import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { importProvidersFrom } from '@angular/core';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
@@ -21,7 +20,6 @@ bootstrapApplication(AppComponent, {
         ),
         provideStore({ users: usersReducer }),
         provideHttpClient(),
-        provideHttpClientTesting(),
     ],
 })
     .catch((err) => console.error(err));
